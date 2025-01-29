@@ -33,6 +33,22 @@ document.getElementById('donate-btn').addEventListener('click', function (event)
 
     document.getElementById('main-amount').innerText = mainNewBlance;
 
-    inputField.value = '';
+    // Transaction History
 
+    const p = document.createElement('p');
+    p.innerText = `${inputValue} Taka Donation from Noakhali,Bangladesh.`;
+    p.classList.add('border-red-100');
+    p.classList.add('border-2');
+    p.classList.add('p-2');
+    p.classList.add('mt-2');
+
+    document.getElementById('transaction-history').appendChild(p);
+
+
+
+});
+
+document.getElementById('feni-donate-btn').addEventListener('click',function(){
+    const feniInputValue=feniDonationFunction('feni-input-value');
+    console.log(feniInputValue);
 });
