@@ -1,14 +1,20 @@
-document.getElementById('donation-btn').addEventListener('click', function () {
+
+
+document.getElementById('donation-btn').addEventListener('click', function (event) {
     
-    document.getElementById('donation-div').classList.remove('hidden');
+    showDivById('donation-div');
     showColorById('donation-btn');
 
 });
 
 document.getElementById('history-btn').addEventListener('click', function () {
-    
+    showDivById('transaction-history');
     showColorById('history-btn');
-    document.getElementById('donation-div').classList.add('hidden');
     
     
+});
+
+
+document.getElementById('blog-btn').addEventListener('click', function () {
+    showDivById('blog-container');
 });

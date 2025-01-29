@@ -1,6 +1,4 @@
-document.getElementById('blog-btn').addEventListener('click', function () {
-    window.location.href = "blog.html";
-});
+
 
 document.getElementById('donate-btn').addEventListener('click', function (event) {
     event.preventDefault();
@@ -50,5 +48,30 @@ document.getElementById('donate-btn').addEventListener('click', function (event)
 
 document.getElementById('feni-donate-btn').addEventListener('click',function(){
     const feniInputValue=feniDonationFunction('feni-input-value');
-    console.log(feniInputValue);
+    const feniAmount=document.getElementById('feni-amount').innerText;
+    const feniBlance=parseFloat(feniAmount);
+    
+    if(isNaN(feniInputValue)){
+        alert('Is not a number !');
+        return
+    }
+
+    const newFeniBlance=feniBlance + feniInputValue;
+    document.getElementById('feni-amount').innerText= newFeniBlance;
+
+    const newFeniMainBlance=document.getElementById('main-amount').innerText;
+    const newfeniMainBlanceNumber=parseFloat(newFeniMainBlance);
+
+    const feniMainBlance=newfeniMainBlanceNumber - feniInputValue;
+    document.getElementById('main-amount').innerText=feniMainBlance;
+
+    // Transaction History
+    const p=document.createElement('p');
+    p.innerText=`${feniInputValue} Taka Donate From Feni,Bangladesh.`;
+    p.classList.add('border-red-100');
+    p.classList.add('border-2');
+    p.classList.add('p-2');
+    p.classList.add('mt-2');
+    document.getElementById('transaction-history').appendChild(p);
+    
 });
